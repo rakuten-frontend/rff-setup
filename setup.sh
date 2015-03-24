@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# variables
+NODEJS_SITE="http://nodejs.org/"
+LOGFILE="setup.log"
+
 # check whether Mac OS
 PRODUCT=""
 if type sw_vers >/dev/null 2>&1; then
@@ -9,10 +13,6 @@ if [ "$PRODUCT" != "Mac OS X" ]; then
     echo "This script can only run on Mac OS X."
     exit 1
 fi
-
-# variables
-NODEJS_SITE="http://nodejs.org/"
-LOGFILE="setup.log"
 
 # Node.js
 if type node >/dev/null 2>&1; then

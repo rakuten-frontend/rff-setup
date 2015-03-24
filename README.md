@@ -16,6 +16,10 @@ $ ./setup.sh
 * Install Sass.
 * Install rff-doctor and run it.
 
+## Requirement
+
+* Mac OS X
+
 ## ToDo
 
 * Support for Git Bash on Windows.
