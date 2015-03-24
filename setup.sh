@@ -5,12 +5,14 @@ NODEJS_SITE="http://nodejs.org/"
 LOGFILE="setup.log"
 
 # Node.js
-if [ `which node` -a `which npm` ]; then
+if type node >/dev/null 2>&1; then
     echo " node:" `node -v`
     echo "  npm:" `npm -v`
 else
-    echo "Node.js is not installed. Please install it form the site."
-    open $NODEJS_SITE
+    echo "Node.js is not installed. Please install it form the site: $NODEJS_SITE"
+    if type open >/dev/null 2>&1; then
+        open $NODEJS_SITE
+    fi
     exit 1
 fi
 
