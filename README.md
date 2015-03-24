@@ -16,5 +16,9 @@ $ ./setup.sh
 * Install Sass.
 * Install rff-doctor and run it.
 
+## ToDo
+
+* Support for Git Bash on Windows.
+
 ## License
 Copyright (c) 2015 Rakuten, Inc. Licensed under the [MIT License](LICENSE).
