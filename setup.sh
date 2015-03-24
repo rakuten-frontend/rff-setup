@@ -19,7 +19,7 @@ fi
 echo "" > $LOGFILE
 
 # yeoman
-sudo npm install -g yo >> $LOGFILE 2>&1
+npm install -g yo >> $LOGFILE
 if [ $? -eq 0 ]; then
     echo "   yo:" `yo --version`
 else
@@ -27,7 +27,7 @@ else
 fi
 
 # Grunt
-sudo npm install -g grunt-cli >> $LOGFILE 2>&1
+npm install -g grunt-cli >> $LOGFILE
 if [ $? -eq 0 ]; then
     echo "grunt:" `grunt --version`
 else
@@ -35,7 +35,7 @@ else
 fi
 
 # Bower
-sudo npm install -g bower >> $LOGFILE 2>&1
+npm install -g bower >> $LOGFILE
 if [ $? -eq 0 ]; then
     echo "bower:" `bower --version`
 else
@@ -43,7 +43,7 @@ else
 fi
 
 # Sass
-sudo gem install sass >> $LOGFILE 2>&1
+gem install sass >> $LOGFILE
 if [ $? -eq 0 ]; then
     echo "sass: " `sass --version`
 else
@@ -51,7 +51,7 @@ else
 fi
     
 # rff-doctor
-sudo npm install -g rff-doctor >> $LOGFILE 2>&1
+npm install -g rff-doctor >> $LOGFILE
 if [ $? -eq 0 ]; then
     rff-doctor
 else
