@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# check whether Mac OS
+PRODUCT=`sw_vers -productName`
+if [ "$PRODUCT" == "Mac OS X" ]; then
+    echo "This script can only run on Mac OS X."
+    exit 1
+fi
+
 # variables
 NODEJS_SITE="http://nodejs.org/"
 LOGFILE="setup.log"
