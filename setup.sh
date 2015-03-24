@@ -1,10 +1,12 @@
 #!/bin/sh
 
 # check whether Mac OS
-PRODUCT=`sw_vers -productName`
-if [ "$PRODUCT" == "Mac OS X" ]; then
-    echo "This script can only run on Mac OS X."
-    exit 1
+if type sw_vers >/dev/null 2>&1; then
+    PRODUCT=`sw_vers -productName`
+    if [ "$PRODUCT" != "Mac OS X" ]; then
+        echo "This script can only run on Mac OS X."
+        exit 1
+    fi
 fi
 
 # variables
