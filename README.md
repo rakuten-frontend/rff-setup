@@ -3,6 +3,8 @@ Setup script for RFF tools.
 
 ## Usage
 
+Execute on Terminal (Mac) or Git Bash (Windows).
+
 ```shell
 $ ./setup.sh
 ```
