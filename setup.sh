@@ -2,17 +2,28 @@
 
 # variables
 NODEJS_SITE="http://nodejs.org/"
+RUBY_SITE="https://www.ruby-lang.org/"
 LOGFILE="setup.log"
 
-# check whether Mac OS
-PRODUCT=""
-if type sw_vers >/dev/null 2>&1; then
-    PRODUCT=`sw_vers -productName`
-fi
-if [ "$PRODUCT" != "Mac OS X" ]; then
-    echo "This script can only run on Mac OS X."
-    exit 1
-fi
+# check OS
+OS="Unknown"
+case `sh --version` in
+    *'apple'*)
+        OS="Mac" ;;
+    *'msys'*)
+        OS="Windows" ;;
+esac
+
+# open URL
+openURL() {
+    if [ $# > 0 ]; then
+        if [ $OS = 'Mac' ]; then
+            open $1
+        elif [ $OS = 'Windows' ]; then
+            explorer $1
+        fi
+    fi
+}
 
 # Node.js
 if type node >/dev/null 2>&1; then
@@ -20,13 +31,21 @@ if type node >/dev/null 2>&1; then
     echo "  npm:" `npm -v`
 else
     echo "Node.js is not installed. Please install it form the site: $NODEJS_SITE"
-    if type open >/dev/null 2>&1; then
-        open $NODEJS_SITE
-    fi
+    openURL $NODEJS_SITE
     exit 1
 fi
 
 echo "" > $LOGFILE
+
+# Ruby
+if type ruby >/dev/null 2>&1; then
+    echo " ruby:" `ruby -v`
+else
+    echo "Ruby is not installed. Please install it form the site: $RUBY_SITE"
+    echo "Additionally you should set PATH to execute ruby command and re-launch the shell window."
+    openURL $RUBY_SITE
+    exit 1
+fi
 
 # yeoman
 npm install -g yo >> $LOGFILE
